@@ -1,7 +1,8 @@
-id=template
-name=Template Module
-version=v1
+id=iYTBP-Vanced-arm-arm64-Magisk-Repo
+name=injected YouTube Background Playback - Vanced - arm/arm64 Magisk Repo
+version=v12.37.57(b008)
 versionCode=1
-author=topjohnwu
-description=A short description
+author=ZaneZam
+description=iYTBP - [Ad]Vanced, created by Razerman, Laura Almeida and ZaneZam. Initial iYTBP version by Master_T. Initial Magisk Module created by Anova's Origin.
+support=https://forum.xda-developers.com/android/apps-games/app-iytbp-injected-youtube-background-t3560900
 template=1400
