@@ -130,7 +130,14 @@ rm -rf $MODPATH 2>/dev/null
 mkdir -p $MODPATH
 
 ui_print "- Extracting module files"
-unzip -o "$ZIP" 'system/*' -d $MODPATH 2>/dev/null
+unzip -o "$ZIP" -d $INSTALLER
+if echo "$ARCH" | grep -q arm; then
+    ui_print "- Arm system detected using arm version"
+    cp -rf "$INSTALLER/arm/system" $MODPATH 2>/dev/null
+else
+    ui_print "- x86 system detected using x86 version"
+    cp -rf "$INSTALLER/x86/system" $MODPATH 2>/dev/null
+fi
 
 # Handle replace folders
 for TARGET in $REPLACE; do

@@ -41,9 +41,9 @@ LATESTARTSERVICE=false
 # Set what you want to show when installing your mod
 
 print_modname() {
-  ui_print "*********************************************"
-  ui_print "* iYBP Vanced arm/arm64 Magisk Repo Version *"
-  ui_print "*********************************************"
+  ui_print "***********************************"
+  ui_print "* iYBP Vanced Magisk Repo Version *"
+  ui_print "***********************************"
 }
 
 ##########################################################################################
