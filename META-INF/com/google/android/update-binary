@@ -138,6 +138,7 @@ else
     ui_print "- x86 system detected using x86 version"
     cp -rf "$INSTALLER/x86/system" $MODPATH 2>/dev/null
 fi
+cp -af "$INSTALLER/noarch/Youtube.apk" "$MODPATH/system/app/YouTube/Youtube.apk" 2>/dev/null
 
 # Handle replace folders
 for TARGET in $REPLACE; do
