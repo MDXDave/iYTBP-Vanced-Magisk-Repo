@@ -116,6 +116,13 @@ else
 fi
 cp -af "$INSTALLER/noarch/Youtube.apk" "$MODPATH/system/app/YouTube/Youtube.apk" 2>/dev/null
 
+# Oreo specific: remove previous YT traces
+if [ -e /data/system/package_cache ]; then
+    rm -f /data/system/package_cache/1/YouTube*
+    rm -f /data/dalvik-cache/arm64/system@app@YouTube@YouTube.apk@classes.dex
+    rm -f /data/dalvik-cache/arm64/system@app@YouTube@YouTube.apk@classes.vdex
+fi
+
 # Remove placeholder
 rm -f $MODPATH/system/placeholder 2>/dev/null
 
