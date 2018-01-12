@@ -5,4 +5,4 @@ versionCode=4
 author=ZaneZam
 description=iYTBP - [Ad]Vanced, created by Razerman, Laura Almeida and ZaneZam. Initial iYTBP version by Master_T. Initial Magisk Module created by Anova's Origin.
 support=https://forum.xda-developers.com/android/apps-games/app-iytbp-injected-youtube-background-t3560900
-template=1410
+minMagisk=1500
