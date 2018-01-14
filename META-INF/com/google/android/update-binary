@@ -106,7 +106,7 @@ mkdir -p $MODPATH
 
 # Extract files to system. Use your own method if needed
 ui_print "- Extracting module files"
-unzip -o "$ZIP" -d $INSTALLER
+unzip -o "$ZIP" -d $INSTALLER > /dev/null 2>&1
 if echo "$ARCH" | grep -q arm; then
     ui_print "- Arm system detected using arm version"
     cp -rf "$INSTALLER/arm/system" $MODPATH 2>/dev/null
