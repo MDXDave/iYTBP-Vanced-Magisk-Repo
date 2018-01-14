@@ -116,6 +116,12 @@ else
 fi
 cp -af "$INSTALLER/noarch/Youtube.apk" "$MODPATH/system/app/YouTube/Youtube.apk" 2>/dev/null
 
+# bring sqlite and detach flag into place (for detaching YT app from playstore)
+cp -af "$INSTALLER/detach/sqlite" "$MODPATH/sqlite"
+cp -af "$INSTALLER/detach/iytbp-module-detach-enabled" "/$MODPATH/iytbp-module-detach-enabled"
+cp -af "$INSTALLER/detach/iytbp-module-detach-disabled" "/$MODPATH/iytbp-module-detach-disabled"
+cp -af "$INSTALLER/detach/iytbp-module-detach-enabled" "/data/iytbp-module-detach-enabled"
+
 # Oreo specific: remove previous YT traces
 if [ -e /data/system/package_cache ]; then
     rm -f /data/system/package_cache/1/YouTube*
@@ -153,6 +159,10 @@ $LATESTARTSERVICE && cp -af $INSTALLER/common/service.sh $MODPATH/service.sh
 
 ui_print "- Setting permissions"
 set_permissions
+
+# set permissions for sqlite (needs to be done last to overrule default permissions)
+chgrp 2000 "$MODPATH/sqlite"
+chmod 0755 "$MODPATH/sqlite"
 
 ##########################################################################################
 # Finalizing
