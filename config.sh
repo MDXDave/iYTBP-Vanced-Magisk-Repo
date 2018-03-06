@@ -40,9 +40,9 @@ LATESTARTSERVICE=false
 # Set what you want to show when installing your mod
 
 print_modname() {
-  ui_print "************************************"
-  ui_print "* iYTBP Vanced Magisk Repo Version *"
-  ui_print "************************************"
+  ui_print "**************************************"
+  ui_print "* Youtube Vanced Magisk Repo Version *"
+  ui_print "**************************************"
 }
 
 ##########################################################################################
