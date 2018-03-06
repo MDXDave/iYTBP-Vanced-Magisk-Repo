@@ -118,9 +118,9 @@ cp -af "$INSTALLER/noarch/Youtube.apk" "$MODPATH/system/app/YouTube/Youtube.apk"
 
 # bring sqlite and detach flag into place (for detaching YT app from playstore)
 cp -af "$INSTALLER/detach/sqlite" "$MODPATH/sqlite"
-cp -af "$INSTALLER/detach/iytbp-module-detach-enabled" "/$MODPATH/iytbp-module-detach-enabled"
-cp -af "$INSTALLER/detach/iytbp-module-detach-disabled" "/$MODPATH/iytbp-module-detach-disabled"
-cp -af "$INSTALLER/detach/iytbp-module-detach-enabled" "/data/iytbp-module-detach-enabled"
+cp -af "$INSTALLER/detach/youtube-vanced-detach-enabled" "/$MODPATH/youtube-vanced-detach-enabled"
+cp -af "$INSTALLER/detach/youtube-vanced-detach-disabled" "/$MODPATH/youtube-vanced-detach-disabled"
+cp -af "$INSTALLER/detach/youtube-vanced-detach-enabled" "/data/youtube-vanced-detach-enabled"
 
 # Oreo specific: remove previous YT traces
 if [ -e /data/system/package_cache ]; then

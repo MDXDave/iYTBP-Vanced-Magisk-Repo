@@ -2,11 +2,11 @@
 
 MODDIR=${0%/*}
 
-# Detach/Attach Apps from playstore by hinxnz modified for the iYTBP Vanced project
+# Detach/Attach Apps from playstore by hinxnz modified for the Youtube Vanced project
 
 PLAY_DB_DIR=/data/data/com.android.vending/databases
-DETACHENABLED=/data/iytbp-module-detach-enabled
-DETACHDISABLED=/data/iytbp-module-detach-disabled
+DETACHENABLED=/data/youtube-vanced-detach-enabled
+DETACHDISABLED=/data/youtube-vanced-detach-disabled
 
 if [ ! -e $DETACHENABLED ] && [ ! -e $DETACHDISABLED ]; then
     exit 0
