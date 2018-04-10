@@ -106,28 +106,21 @@ mkdir -p $MODPATH
 
 # Extract files to system. Use your own method if needed
 ui_print "- Extracting module files"
-unzip -o "$ZIP" -d $INSTALLER > /dev/null 2>&1
-if echo "$ARCH" | grep -q arm; then
-    ui_print "- Arm system detected using arm version"
-    cp -rf "$INSTALLER/arm/system" $MODPATH 2>/dev/null
-else
-    ui_print "- x86 system detected using x86 version"
-    cp -rf "$INSTALLER/x86/system" $MODPATH 2>/dev/null
-fi
-cp -af "$INSTALLER/noarch/Youtube.apk" "$MODPATH/system/app/YouTube/Youtube.apk" 2>/dev/null
-
-# bring sqlite and detach flag into place (for detaching YT app from playstore)
-cp -af "$INSTALLER/detach/sqlite" "$MODPATH/sqlite"
-cp -af "$INSTALLER/detach/youtube-vanced-detach-enabled" "/$MODPATH/youtube-vanced-detach-enabled"
-cp -af "$INSTALLER/detach/youtube-vanced-detach-disabled" "/$MODPATH/youtube-vanced-detach-disabled"
-cp -af "$INSTALLER/detach/youtube-vanced-detach-enabled" "/data/youtube-vanced-detach-enabled"
+unzip -o "$ZIP" -d $INSTALLER >&2;
+for arch in arm x86; do
+    if echo $ARCH | grep -q $arch; then
+        ui_print "- $arch system detected using $arch version";
+        cp -af "$INSTALLER/$arch/system" $MODPATH;
+        break;
+    fi;
+done;
+cp -af "$INSTALLER/noarch/Youtube.apk" "$MODPATH/system/app/YouTube/Youtube.apk";
+cp -af "$INSTALLER/detach/sqlite" "$MODPATH/";
 
 # Oreo specific: remove previous YT traces
 if [ -e /data/system/package_cache ]; then
-    rm -f /data/system/package_cache/1/YouTube*
-    rm -f /data/dalvik-cache/arm64/system@app@YouTube@YouTube.apk@classes.dex
-    rm -f /data/dalvik-cache/arm64/system@app@YouTube@YouTube.apk@classes.vdex
-fi
+    rm -f /data/system/package_cache/1/YouTube* /data/dalvik-cache/arm64/system@app@YouTube@YouTube.apk@classes.*dex;
+fi;
 
 # Remove placeholder
 rm -f $MODPATH/system/placeholder 2>/dev/null
@@ -159,10 +152,6 @@ $LATESTARTSERVICE && cp -af $INSTALLER/common/service.sh $MODPATH/service.sh
 
 ui_print "- Setting permissions"
 set_permissions
-
-# set permissions for sqlite (needs to be done last to overrule default permissions)
-chgrp 2000 "$MODPATH/sqlite"
-chmod 0755 "$MODPATH/sqlite"
 
 ##########################################################################################
 # Finalizing
