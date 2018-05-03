@@ -6,8 +6,8 @@ MODDIR=${0%/*}
 # Later modified by MCMotherEffin' for proper Magisk / detach compatibility
 
 PLAY_DB_DIR=/data/data/com.android.vending/databases
-DETACHENABLED=$MODDIR/enable_detach;
-DETACHDISABLED=$MODDIR/disable_detach;
+DETACHENABLED=/cache/enable_detach;
+DETACHDISABLED=/cache/disable_detach;
 
 if [ ! -e $DETACHENABLED ] && [ ! -e $DETACHDISABLED ]; then
     exit 1;
