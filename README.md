@@ -9,9 +9,9 @@ White stock theme is used by default if u start the app the first time. If u wan
 this module will have the black theme instead the dark stock theme included**
 
 **Detach/Attach app from Playstore:
-Since update from 10.04.18 detaching is by default disabled. If u want to enable it u have to put a file called "enable_detach" into module directory (usually here /sbin/.core/img/iYTBP-Vanced-Magisk-Repo)
-and reboot the phone. 60 seconds after reboot the app gets detached from playstore. If u want to disable detaching again put a file called "disable_detach" into module directory and reboot the phone 
-like with detaching 60 seconds after reboot it gets attached to playstore again.
-WARNING: Due to the hacky nature of this method there might come up unexpected issues with the playstore and its functions. So be warned and enable it at your own risk!**
+Due to multiple reported issues for some users (eg. apps auto update broken) and since update from 10.04.18 detaching is by default disabled. If u want to enable it u have to put a file (can be empty) called "enable_detach"
+into your /cache directory and reboot the phone. 60 seconds after reboot the app gets detached from playstore. If u want to disable detaching again put a file called "disable_detach" (can be empty) into /cache directory and
+reboot the phone like with detaching 60 seconds after reboot it gets attached to playstore again.
+WARNING: Due to the hacky nature of this method there might come up unexpected issues with the playstore and it's functions. So be warned and enable it at your own risk!**
 
 **This repo gets always updated `AFTER` the official Apk variants are available/released so expect up-to-date delays**
